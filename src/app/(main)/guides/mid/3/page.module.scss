@@ -148,6 +148,7 @@ $blockMargin: 8em;
   .firstLine{
     margin: 1.5rem 0;
     max-width: 80%;
+    margin-bottom: 0;
     color: $color-bright;
     font-family: var(--font-conclusion), sans-serif;
     font-size: var(--font-size-primary);
@@ -178,7 +179,7 @@ $blockMargin: 8em;
 .leftBlock,
 .rightBlock {
   flex: 1;
-  // Для мобильных устройств
+
   @media (max-width: 768px) {
     max-width: 100%;
     width: 100%;
