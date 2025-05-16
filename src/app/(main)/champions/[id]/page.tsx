@@ -2,13 +2,12 @@ import {ApiSpell, ChampionDetails} from '@/types/champion';
 import ClientPage from './ClientPage';
 
 async function getChampion(id: string): Promise<ChampionDetails> {
-    const version = '13.24.1';
+    const version = '15.10.1';
     const res = await fetch(
         `https://ddragon.leagueoflegends.com/cdn/${version}/data/ru_RU/champion/${id}.json`
     );
 
     if (!res.ok) throw new Error('Failed to fetch champion');
-
     const data = await res.json();
     const champData = data.data[id];
     const championId = champData.key.padStart(4, '0');

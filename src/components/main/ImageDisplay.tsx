@@ -1,10 +1,10 @@
 "use client";
 
-import Image from 'next/image'; // Импортируем Image из next/image
+import Image from 'next/image';
 import styles from './ImageDisplay.module.scss';
 
 interface ImageDisplayProps {
-    src: string; // Путь к изображению
+    src: string;
 }
 
 const ImageDisplay: React.FC<ImageDisplayProps> = ({ src }) => {

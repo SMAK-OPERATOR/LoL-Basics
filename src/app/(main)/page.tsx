@@ -7,9 +7,8 @@ import GuideCard from '@/components/main/GuideCard';
 import ImageDisplay from '@/components/main/ImageDisplay';
 import {useState} from "react";
 
-
 export default function Home() {
-    const [imageSrc, setImageSrc] = useState<string>('/images/main/all.png'); // Начальное изображение
+    const [imageSrc, setImageSrc] = useState<string>('/images/main/all.png');
     return (
         <main className="mainContainer">
             <div className={styles.upperContainer}>

@@ -1,24 +1,20 @@
 'use client'
-
 import {useState, useMemo} from 'react';
 import styles from './Test.module.scss';
 import {TestData, TestQuestionPage} from '@/types/test';
-import {useRouter} from 'next/navigation'; // Добавляем импорт роутера
-
+import {useRouter} from 'next/navigation';
 interface TestProps {
     theme?: 'adc' | 'support' | 'jungle' | 'all' | 'mid' | 'top';
     page: number;
     testData: TestData;
     nextPage: string;
 }
-
 const BackIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24">
         <line x1="0" y1="0" x2="24" y2="24" stroke="currentColor" strokeWidth="2"/>
         <line x1="0" y1="24" x2="24" y2="0" stroke="currentColor" strokeWidth="2"/>
     </svg>
 );
-
 const RestartIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24">
         <path
@@ -28,7 +24,7 @@ const RestartIcon = () => (
 );
 
 export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
-    const router = useRouter(); // Инициализируем роутер
+    const router = useRouter();
     const currentPageData = useMemo(
         () => testData.testQuestions.find(p => p.pageNumber === page) as TestQuestionPage,
         [page, testData]
@@ -39,11 +35,9 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
     const [answers, setAnswers] = useState<(number | null)[]>(Array(totalQuestions).fill(null));
     const [isAnswerChecked, setIsAnswerChecked] = useState(false);
     const [checkedQuestions, setCheckedQuestions] = useState<boolean[]>(Array(totalQuestions).fill(false));
-
     const currentQuestion = currentPageData.questions[currentQuestionIndex];
     const selectedAnswer = answers[currentQuestionIndex];
     const isLastQuestion = currentQuestionIndex === totalQuestions - 1;
-
     const handleOptionSelect = (optionIndex: number) => {
         if (!isAnswerChecked) {
             const newAnswers = [...answers];
@@ -51,31 +45,23 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
             setAnswers(newAnswers);
         }
     };
-
     const handleBack = () => {
-        router.back(); // Навигация назад
+        router.back();
     };
-
     const handleTestCompletion = () => {
         const key = theme;
         try {
-            const totalPages = testData.testQuestions.length; // Получаем общее количество страниц
+            const totalPages = testData.testQuestions.length;
             const storedValue = localStorage.getItem(key);
-
-            // Инициализируем массив с правильной длиной
             let completedPages: boolean[] = storedValue
                 ? JSON.parse(storedValue)
                 : Array(totalPages).fill(false);
-
-            // Корректируем длину массива если необходимо
             if (completedPages.length !== totalPages) {
                 completedPages = completedPages.slice(0, totalPages);
                 while (completedPages.length < totalPages) {
                     completedPages.push(false);
                 }
             }
-
-            // Обновляем текущую страницу
             completedPages[page - 1] = true;
             localStorage.setItem(key, JSON.stringify(completedPages));
         } catch (error) {
@@ -87,7 +73,6 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
     const handleSubmit = () => {
         if (selectedAnswer === null) return;
         setIsAnswerChecked(true);
-        // Обновляем массив проверенных вопросов
         setCheckedQuestions(prev => {
             const newChecked = [...prev];
             newChecked[currentQuestionIndex] = true;
@@ -100,7 +85,7 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
             setCurrentQuestionIndex(prev => prev + 1);
             setIsAnswerChecked(false);
         } else {
-            handleTestCompletion(); // Вызываем завершение теста
+            handleTestCompletion();
         }
     };
 

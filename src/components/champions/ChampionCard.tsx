@@ -1,10 +1,8 @@
-// components/ChampionCard.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 import { Champion } from '@/types/champion';
 import styles from './ChampionCard.module.scss';
 
-// Импортируем SVG-иконки
 const roleIcons = {
     Fighter: '/images/roles/fighter.svg',
     Mage: '/images/roles/mage.svg',

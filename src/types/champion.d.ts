@@ -55,8 +55,6 @@ export interface Champion {
     image: string;
 }
 
-
-
 export interface ChampionDetails extends Champion {
     lore: string;
     spells: Spell[];

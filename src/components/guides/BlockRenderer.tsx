@@ -5,9 +5,8 @@ import {GuideData, BlockType} from '@/types/guide';
 interface BlockRendererProps {
     guideData: GuideData;
     pageNumber: number;
-    theme?: 'adc' | 'support' | 'jungle' | 'all' | 'mid' | 'top'; // Добавляем пропс для темы
+    theme?: 'adc' | 'support' | 'jungle' | 'all' | 'mid' | 'top';
 }
-
 const validBlockTypes = new Set<BlockType>([
     'wide',
     'leftTextRightWide',
@@ -15,7 +14,6 @@ const validBlockTypes = new Set<BlockType>([
     'leftTextRightSquare',
     'rightTextLeftSquare'
 ]);
-
 const imageDimensions = {
     wide: 1340,
     leftTextRightWide: 554,
@@ -45,17 +43,14 @@ const BlockRenderer = ({guideData, pageNumber, theme}: BlockRendererProps) => {
                     const isWide = type === 'wide';
                     const isSquare = type.includes('Square');
                     const isReverse = type.startsWith('rightText');
-
                     return (
                         <div key={index} className={`${styles.block} ${isWide ? styles.wideBlock : ''}`}>
-
                             {!isWide ? (
                                 <div className={`${styles.contentRow} ${isReverse ? styles.reverse : ''}`}>
                                     <div className={styles.textColumn}>
                                         <p className={styles.header}>{block.header}</p>
                                         {renderTextLines(block.textLines)}
                                     </div>
-
                                     <div className={`${styles.imageWrapper} ${isSquare ? styles.square : ''}`}>
                                         <Image
                                             src={block.imagePath}

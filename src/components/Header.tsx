@@ -1,11 +1,9 @@
-// components/Header.tsx
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import styles from './Header.module.scss';
-
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownMenuRef = useRef<HTMLDivElement>(null);

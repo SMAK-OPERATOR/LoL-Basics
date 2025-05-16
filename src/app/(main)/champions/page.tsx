@@ -3,7 +3,7 @@ import { Champion, ChampionApiResponse, ApiChampion } from '@/types/champion';
 import ClientPage from './ClientPage';
 
 async function getChampions(): Promise<Champion[]> {
-    const version = '13.24.1';
+    const version = '15.10.1';
     const res = await fetch(
         `https://ddragon.leagueoflegends.com/cdn/${version}/data/ru_RU/champion.json`
     );

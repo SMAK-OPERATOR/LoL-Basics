@@ -1,34 +1,28 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProgressTimeline.module.scss';
 import { GuideTimeLine } from '@/types/timeline';
 import { TimelineElement } from "@/types/timeline";
-
 interface ProgressTimelineProps {
     timeLine: GuideTimeLine;
     storageKey: string;
     theme: 'adc' | 'support' | 'jungle' | 'all' | 'mid' | 'top';
-    pageHrefs: string[]; // Новый пропс для URL страниц
+    pageHrefs: string[];
 }
-
 export const ProgressTimeline = ({ timeLine, storageKey, theme, pageHrefs }: ProgressTimelineProps) => {
     const [completedStates, setCompletedStates] = useState<boolean[]>([false, false, false]);
     const [hoverStates, setHoverStates] = useState<boolean[]>([false, false, false]);
     const [pressedStates, setPressedStates] = useState<boolean[]>([false, false, false]);
-
     useEffect(() => {
         const saved = localStorage.getItem(storageKey);
         if (saved) setCompletedStates(JSON.parse(saved));
     }, [storageKey]);
-
     const handleState = (index: number, state: 'hover' | 'press', value: boolean) => {
         const setter = state === 'hover' ? setHoverStates : setPressedStates;
         setter(prev => prev.map((v, i) => i === index ? value : v));
     };
-
     const elements = [
         {
             type: 'topLine',

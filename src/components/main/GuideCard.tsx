@@ -1,14 +1,12 @@
 "use client";
-
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './GuideCard.module.scss';
-
 interface GuideCardProps {
-    onHover: (imageSrc: string) => void; // Функция для изменения изображения
-    imageSrc: string; // Путь к изображению
-    text: string; // Текст под изображением
+    onHover: (imageSrc: string) => void;
+    imageSrc: string;
+    text: string;
     roleImg: string;
     width: number;
     link: string;
@@ -21,10 +19,10 @@ const GuideCard: React.FC<GuideCardProps> = ({ onHover, imageSrc, text, roleImg,
         <Link href={link} passHref className={styles.link}>
             <div
                 className={`${styles.guideCard} ${isActive ? styles.active : ''}`}
-                onMouseEnter={() => onHover(imageSrc)} // Вызываем функцию при наведении
-                onMouseLeave={() => setIsActive(false)} // Сбрасываем состояние при уходе мыши
-                onMouseDown={() => setIsActive(true)} // Устанавливаем активное состояние при нажатии
-                onMouseUp={() => setIsActive(false)} // Сбрасываем активное состояние при отпускании кнопки
+                onMouseEnter={() => onHover(imageSrc)}
+                onMouseLeave={() => setIsActive(false)}
+                onMouseDown={() => setIsActive(true)}
+                onMouseUp={() => setIsActive(false)}
             >
                 <div className={styles.container}>
                         <Image

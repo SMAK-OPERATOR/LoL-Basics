@@ -23,7 +23,6 @@ const classTranslations: { [key: string]: string } = {
 
 export default function ClientPage({ champion }: { champion: ChampionDetails }) {
     const [selectedSpellIndex, setSelectedSpellIndex] = useState<number>(0);
-
     const spellsWithTypes = [
         { type: 'P', ...champion.passive },
         ...champion.spells.map((spell, index) => ({
@@ -58,13 +57,6 @@ export default function ClientPage({ champion }: { champion: ChampionDetails }) 
                             <p className={styles.loreText}>{champion.lore}</p>
                         </div>
                     </div>
-                    {/*<div className={styles.imageContainer}>*/}
-                    {/*    <img*/}
-                    {/*        src={champion.image}*/}
-                    {/*        alt={champion.name}*/}
-                    {/*        className={styles.championImage}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
                     <div className={styles.carouselContainer}>
                         <Swiper
                             modules={[Navigation, EffectFade]}
@@ -78,19 +70,12 @@ export default function ClientPage({ champion }: { champion: ChampionDetails }) 
                         >
                             {champion.skins.map((skin, index) => (
                                 <SwiperSlide key={skin.name + index}>
-                                    {/*<img*/}
-                                    {/*    src={skin.image}*/}
-                                    {/*    alt={skin.name}*/}
-                                    {/*    className={styles.championImage}*/}
-                                    {/*    loading="lazy"*/}
-                                    {/*/>*/}
                                     <Image src={skin.image} alt={skin.name} className={styles.championImage} loading={"lazy"} layout="fill" objectFit={"cover"}></Image>
                                     <div className={styles.skinCaption}>
                                         <span className={styles.skinName}>{skin.name}</span>
                                     </div>
                                 </SwiperSlide>
                             ))}
-
                             <div className={styles.swiperButtonPrev}>
                                 <svg width="36" height="36" viewBox="0 0 24 24">
                                     <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
@@ -105,7 +90,6 @@ export default function ClientPage({ champion }: { champion: ChampionDetails }) 
                     </div>
                 </div>
 
-
                 <div className={styles.spellsContainer}>
                     <div className={styles.spellsList}>
                         {spellsWithTypes.map((spell, index) => (
@@ -116,11 +100,6 @@ export default function ClientPage({ champion }: { champion: ChampionDetails }) 
                                 }`}
                                 onClick={() => setSelectedSpellIndex(index)}
                             >
-                                {/*<img*/}
-                                {/*    src={spell.image}*/}
-                                {/*    alt={spell.name}*/}
-                                {/*    className={styles.spellImage}*/}
-                                {/*/>*/}
                                 <Image src={spell.image} alt={spell.name} className={styles.spellImage} width={45} height={45}></Image>
                                 <span className={styles.spellType}>[{spell.type}]</span>
                                 <span className={styles.spellName}>{spell.name}</span>
@@ -134,7 +113,6 @@ export default function ClientPage({ champion }: { champion: ChampionDetails }) 
                                     src={spellsWithTypes[selectedSpellIndex].image}
                                     className={styles.spellDetailImage}
                                 />
-                                {/*<Image src={spellsWithTypes[selectedSpellIndex].image} alt={spellsWithTypes[selectedSpellIndex].name} className={styles.spellImage} width={80} height={80}></Image>*/}
                                 <div className={styles.spellHeaderInfo}>
                                     <div className={styles.spellKey}>
                                         [{spellsWithTypes[selectedSpellIndex].type}]

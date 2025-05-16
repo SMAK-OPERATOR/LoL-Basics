@@ -19,7 +19,6 @@ export default function Home() {
         setIsOpen(!isOpen);
     };
     const pageNumber = 1;
-
     useEffect(() => {
         if (dropdownMenuRef.current) {
             dropdownMenuRef.current.style.height = isOpen ? `${dropdownMenuRef.current.scrollHeight}px` : '0';
@@ -58,15 +57,6 @@ export default function Home() {
                             Чемпионы
                         </Link>
                     </nav>
-                    {/*<div className={styles.imageContainer}>*/}
-                    {/*    <Image*/}
-                    {/*        src={adcData.guide.topPicture}*/}
-                    {/*        alt="Top Guide Picture"*/}
-                    {/*        width={815}*/}
-                    {/*        height={500}*/}
-                    {/*        layout="intrinsic"*/}
-                    {/*    />*/}
-                    {/*</div>*/}
                 </header>
                 <main className={styles.main}>
                     <div className={styles.descContainer}>

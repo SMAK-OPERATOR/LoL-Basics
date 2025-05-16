@@ -1,6 +1,4 @@
-// types/guide.ts
 
-// Тип для временной линии
 export interface TimeLineData {
     title: string[];
     description: string[];
@@ -24,13 +22,11 @@ export interface TimeLineData {
     };
 }
 
-// Тип для блока заключения
 export interface ConclusionData {
     firstLine: string;
     secondLine: string;
 }
 
-// Типы для блоков контента
 export type BlockType =
     | 'wide'
     | 'leftTextRightWide'
