@@ -1,55 +1,65 @@
 @import '../../styles/themes/all';
 @import '../../styles/mixins';
 
-.guideCard {
-  @include flex-center;
-  border: 2px solid $color-text;
-  width: 212px;
-  height: 212px;
-  padding: 2px;
-  box-sizing: border-box;
+@import '../../styles/themes/all';
+@import '../../styles/mixins';
 
+.guideCard {
+  border: 2px solid $color-text;
+  aspect-ratio: 1;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 2px;
   &:hover {
     border-color: $color-bright;
-}
-  // Состояние при нажатии
+  }
   &.active {
     border-color: $color-text;
   }
 }
-.container{
+
+.container {
   background-color: $color-h;
-  width: 100%;
+  position: relative;
   height: 100%;
+  display: flex;
   flex-direction: column;
-  @include flex-center;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
 
   .guideCard:hover & {
     background-color: $color-faint;
   }
 
-  // Состояние при нажатии
   .guideCard.active & {
     background-color: $color-bright;
   }
 }
 
 .image {
-  margin-top: 1.5em;
+  width: auto;
+  height: 50%;
+  object-fit: contain;
+  margin: 0 auto;
+  margin-top: 1rem;
 }
 
-.textBox{
+.textBox {
   width: 80%;
-  @include flex-center;
-  height: calc(100% - 85px);
+  text-align: center;
+  padding: 0.5rem;
+
+  @media (min-width: 350px) and (max-width: 1024px) {
+    width: 100%;
+  }
 }
 
 .text {
-  text-align: center;
   color: $color-white;
+  text-align: center;
   font-family: var(--font-secondary);
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .link{
