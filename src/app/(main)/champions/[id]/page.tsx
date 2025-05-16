@@ -54,14 +54,10 @@ async function getChampion(id: string): Promise<ChampionDetails> {
         ]
     };
 }
-interface Props {
-    params: {
-        id: string;
-    };
-}
 
-
-export default async function ChampionPage({ params }: Props) {
-    const champion = await getChampion(params.id);
+export default async function ChampionPage({ params }: { params: Promise<{ id: string }> }) {
+    const id = (await params).id
+    const champion = await getChampion(id);
     return <ClientPage champion={champion} />;
+
 }

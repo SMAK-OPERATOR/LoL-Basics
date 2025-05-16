@@ -31,7 +31,6 @@ export default function ClientPage({ champion }: { champion: ChampionDetails }) 
             ...spell
         }))
     ];
-    console.log(champion.skins);
     return (
         <main className="mainContainer">
             <Header />
