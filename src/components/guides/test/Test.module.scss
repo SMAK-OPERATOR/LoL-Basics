@@ -11,6 +11,7 @@
 .header {
   display: flex;
   align-items: center;
+  margin-top: 2rem;
   gap: 1rem;
   margin-bottom: 3rem;
 
@@ -132,11 +133,10 @@
   align-items: center;
 gap: 1rem;
   &:hover {
-    border-color: var(--color-bright);
   }
 
   &.selected {
-    border-color: var(--color-dtext);
+    border-color: var(--color-bright);
   }
 
   &.correct {
