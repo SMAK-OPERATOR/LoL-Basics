@@ -1,0 +1,93 @@
+// app/champions/page.module.scss
+@import '../../../styles/themes/all.scss';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr)); // Фиксируем 4 колонки
+  column-gap: 3rem;
+  row-gap: 2rem;
+  margin: 3rem auto 0;
+}
+
+.noResults {
+  text-align: center;
+  font-size: 2rem;
+  color: $color-text;
+  margin-top: 3rem;
+  font-style: italic;
+  font-family: var(--font-primary), sans-serif;
+}
+
+.filterContainer {
+  max-width: 1372px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.searchWrapper {
+  position: relative;
+  display: inline-block;
+  border: 2px solid $color-faint;
+  padding: 0.5rem 1rem;
+}
+
+.searchIcon {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: $color-bright;
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  color: $color-h;
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  padding-left: 40px;
+  width: 300px;
+  outline: none;
+
+  &::placeholder {
+    color: rgba($color-bright, 0.7);
+  }
+}
+
+.rolesFilter {
+  display: flex;
+  gap: 1rem;
+  margin-left: 5rem;
+}
+
+.roleButton {
+  width: 61px;
+  height: 61px;
+  border: 2px solid $color-faint;
+  background: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $color-bright;
+    transform: scale(1.1);
+
+  }
+
+  &.active {
+    border-color: $color-bright;
+    background: rgba($color-h, 0.1);
+
+  }
+}
+
+.roleIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 0.3s ease, transform 0.2s ease;
+}

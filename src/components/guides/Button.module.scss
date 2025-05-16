@@ -1,0 +1,61 @@
+// components/CustomButton/CustomButton.module.scss
+.button {
+  --border-width: 2px;
+  --gap: 0.25rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20.5rem;
+  height: 6rem;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: var(--border-width) solid var(--color-faint);
+    transition: inherit;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: calc(var(--gap) + var(--border-width));
+    background-color: var(--color-h);
+    transition: inherit;
+  }
+
+  &:hover {
+    &::before {
+      border-color: var(--color-bright);
+    }
+    &::after {
+      background-color: var(--color-faint);
+    }
+  }
+
+  &:active {
+    &::before {
+      border-color: var(--color-faint);
+    }
+    &::after {
+      background-color: var(--color-bright);
+    }
+  }
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: var(--font-size-secondary);
+}
+

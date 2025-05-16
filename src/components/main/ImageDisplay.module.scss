@@ -1,0 +1,16 @@
+@import '../../styles/themes/all';
+@import '../../styles/mixins';
+
+.mainImage {
+  @include flex-center;
+  max-width: 100%;
+  height: auto;
+}
+
+.imageContainer {
+  @include flex-center;
+  border: 2px solid $color-h;
+  padding: 2px;
+  display: inline-block;
+  align-items: flex-start;
+}

@@ -1,0 +1,85 @@
+@import '../../styles/themes/all';
+@import '../../styles/mixins';
+
+.upperContainer {
+  @include flex-center;
+  align-items: stretch;
+  flex-direction: row;
+  margin-top: 6em;
+
+  .leftContainer {
+    width: 50%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.75em;
+
+    .header {
+      display: flex;
+      align-items: center;
+
+      .divider {
+        width: 0.0625*2rem;
+        height: 6rem;
+        background: $color-bright;
+        margin: 0 3.5rem;
+      }
+
+      .navlink {
+        font-family: var(--font-secondary), sans-serif;
+        font-size: var(--font-size-secondary);
+        color: $color-bright;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $color-faint;
+        }
+
+        &:active {
+          color: $color-text;
+        }
+      }
+
+    }
+
+    .textblock {
+      @include flex-center;
+      flex-direction: column;
+      align-items: start;
+      margin-top: 6em;
+
+      .mainTitle {
+        font-family: var(--font-primary), sans-serif;
+        font-size: var(--font-size-primary);
+        text-align: left;
+        font-style: italic;
+      }
+
+      .subtitle {
+        font-family: var(--font-secondary);
+        font-size: var(--font-size-secondary);
+        text-align: left;
+      }
+    }
+  }
+
+  .rightContainer {
+    width: 50%;
+
+  }
+
+}
+
+.bottomContainer {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  .guideCards{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.1rem;
+  }
+}

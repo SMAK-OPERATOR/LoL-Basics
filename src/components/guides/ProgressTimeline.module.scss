@@ -1,0 +1,55 @@
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  padding: 2.5rem 0;
+  margin-left: -6px;
+  position: relative;
+  overflow: visible;
+}
+
+.item {
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.imageContainer {
+  position: relative;
+  display: block;
+}
+
+.image {
+  object-fit: contain;
+  display: block;
+}
+
+.textOverlay {
+  position: absolute;
+  text-align: left;
+  z-index: 5;
+}
+.title {
+  margin: 0 0 0.5rem 0;
+  color: var(--color-h);
+  font-size: 1.25rem;
+  font-family: var(--font-secondary), sans-serif;
+  white-space: nowrap;
+
+  &.hover {
+    color: var(--color-faint);
+  }
+
+  &.pressed {
+    color: var(--color-text);
+  }
+}
+
+.description {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  font-family: var(--font-text), sans-serif;
+  max-width: 10rem;
+}

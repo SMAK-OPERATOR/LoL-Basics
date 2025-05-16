@@ -1,7 +1,19 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/i,
+            issuer: /\.[jt]sx?$/,
+            use: ['@svgr/webpack'],
+        })
 
-export default nextConfig;
+        return config
+    },
+    images: {
+        domains: ['ddragon.leagueoflegends.com']
+    }
+}
+
+export default nextConfig

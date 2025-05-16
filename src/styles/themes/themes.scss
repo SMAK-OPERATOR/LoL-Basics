@@ -1,0 +1,68 @@
+.theme-adc{
+  --color-h: #A2BD47;
+  --color-text: #44520B;
+  --color-dtext: #173D42;
+  --color-faint: #7F9B22;
+  --color-bright: #BBCD1F;
+  --color-white: #FFFFFF;
+}
+
+.theme-all{
+  --color-h: #C8AA6E;
+  --color-text: #786B51;
+  --color-dtext: #0A1428;
+  --color-faint: #BD8C2A;
+  --color-bright: #FAC356;
+  --color-white: #FFFFFF;
+}
+
+.theme-top{
+  --color-h: #D4312D;
+  --color-text: #43232E;
+  --color-dtext: #352A2A;
+  --color-faint: #941916;
+  --color-bright: #F32A26;
+  --color-white: #FFFFFF;
+}
+.theme-support{
+  --color-h: #E8642D;
+  --color-text: #842D25;
+  --color-dtext: #24170A;
+  --color-faint: #B64517;
+  --color-bright: #FD9438;
+  --color-white: #FFFFFF;
+}
+.theme-mid{
+  --color-h: #904FC7;
+  --color-text: #0A4D99;
+  --color-dtext: #251742;
+  --color-faint: #5B0E9C;
+  --color-bright: #FFABE9;
+  --color-white: #FFFFFF;
+}
+.theme-jungle{
+  --color-h: #0778DF;
+  --color-text: #3D588A;
+  --color-dtext: #141728;
+  --color-faint: #0357A5;
+  --color-bright: #3CA0FC;
+  --color-white: #FFFFFF;
+}
+
+
+
+:root {
+  --font-primary: 'Montserrat Medium', sans-serif;
+  --font-secondary: 'Montserrat Regular', sans-serif;
+  --font-text: "Roboto Regular", sans-serif;
+  --font-conclusion: 'Montserrat Medium', sans-serif;
+  --font-progresstitle: 'Montserrat Regular', sans-serif;
+  --font-progressdesc: "Roboto Regular", sans-serif;
+
+  --font-size-primary: 2.5rem;
+  --font-size-secondary: 2rem;
+  --font-size-text: 1.25rem;
+  --font-conclusion-text: 2.5rem;
+  --font-progresstitle-text: 0.875rem;
+  --font-progressdesc-text: 1.25rem;
+}

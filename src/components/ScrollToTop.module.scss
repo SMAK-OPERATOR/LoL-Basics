@@ -1,0 +1,40 @@
+// components/ScrollToTop.module.scss
+
+.scrollButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 5rem;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-faint);
+  cursor: pointer;
+  background: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  &:hover {
+    .arrow {
+      fill: var(--color-bright);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+    border-color: var(--color-bright);
+
+    .arrow {
+      fill: var(--color-faint);
+    }
+  }
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-h);
+  transition: fill 0.3s ease;
+  rotate: -90deg;
+}

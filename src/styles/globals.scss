@@ -1,0 +1,16 @@
+@import 'themes/all';
+@import './mixins';
+@import 'themes/themes';
+
+body {
+  background: $color-white;
+  margin: 0;
+  padding: 0;
+  @include flex-center;
+}
+
+.mainContainer {
+  width: 71.5%;
+}
+
+

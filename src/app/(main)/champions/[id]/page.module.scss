@@ -1,0 +1,378 @@
+@import '../../../../styles/themes/all.scss';
+.container {
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+.headerSection {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start; // Изменено с center на flex-start
+  margin-bottom: 4rem;
+}
+
+.titleWrapper {
+  flex: 1;
+}
+
+.name {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-primary);
+  color: $color-h;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.title {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-secondary);
+  color: $color-bright;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.roles {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.role {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba($color-h, 0.1);
+  padding: 0.8rem 1.5rem;
+  border: 1px solid $color-faint;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $color-bright;
+  }
+}
+
+.roleIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.roleText {
+  font-family: var(--font-secondary);
+  color: $color-bright;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.imageContainer {
+  border: 2px solid $color-faint;
+  width: 700px;
+  height: 500px;
+  padding: 4px;
+}
+
+.championImage {
+  width: 700px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+}
+
+.lore {
+  max-width: 600px;
+  margin-top: 3rem;
+
+  &Title {
+    font-family: var(--font-primary);
+    color: $color-h;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  &Text {
+    font-family: var(--font-text);
+    color: $color-dtext;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    text-align: justify;
+  }
+}
+
+
+
+
+.spellsContainer {
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+
+.spellsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.spellItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem;
+  background: rgba($color-h, 0.05);
+  border: 1px solid $color-faint;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $color-bright;
+    background: rgba($color-h, 0.1);
+    transform: translateX(5px);
+  }
+
+  &.active {
+    border-color: $color-bright;
+    background: rgba($color-h, 0.15);
+  }
+}
+
+.spellDetails {
+  background: rgba($color-h, 0.05);
+  border: 1px solid $color-faint;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.spellImage {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+.spellType {
+  font-family: var(--font-primary);
+  color: $color-bright;
+  font-size: 1.4rem;
+  font-weight: 500;
+  min-width: 35px;
+}
+
+.spellName {
+  font-family: var(--font-secondary);
+  color: $color-dtext;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+
+.spellHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.spellDetailImage {
+  width: 80px;
+  height: 80px;
+  border: 2px solid $color-faint;
+  padding: 4px;
+}
+
+.spellHeaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.spellKey {
+  font-family: var(--font-primary);
+  color: $color-bright;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.spellDetailName {
+  font-family: var(--font-primary);
+  color: $color-h;
+  font-size: 2.4rem;
+  margin: 0;
+}
+
+.spellStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba($color-h, 0.1);
+  border: 1px solid $color-faint;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statLabel {
+  font-family: var(--font-secondary);
+  color: $color-dtext;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.statValue {
+  font-family: var(--font-primary);
+  color: $color-bright;
+  font-size: 1.4rem;
+}
+
+.spellFullDescription {
+  line-height: 1.8;
+  font-size: var(--font-size-text);
+  font-family: var(--font-text);
+
+  b {
+    color: $color-bright;
+    font-weight: 500;
+  }
+
+  // Стили для маркированных списков в описании
+  ul {
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+
+  li {
+    margin: 0.5rem 0;
+  }
+}
+
+.abilityVideoContainer {
+  margin-top: 2rem;
+  border: 1px solid $color-faint;
+  padding: 4px;
+  background: rgb($color-h, 0.1);
+}
+
+.abilityVideo {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+
+
+
+.carouselContainer {
+  position: relative;
+  border: 2px solid $color-faint;
+  width: 700px;
+  height: 500px;
+  overflow: hidden;
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+
+    &-slide {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  .championImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.skinCaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba($color-dtext, 0.7);
+  padding: 1rem 2rem;
+  width: 100%;
+  border-top: 2px solid $color-faint;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 200px;
+    height: 2px;
+  }
+}
+
+.skinName {
+  font-family: var(--font-secondary);
+  color: $color-bright;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.swiperButtonPrev,
+.swiperButtonNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 50px;
+  height:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($color-bright, 0.8);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  svg {
+    fill: $color-bright;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.swiperButtonPrev {
+  left: 20px;
+}
+
+.swiperButtonNext {
+  right: 20px;
+}
+
+.swiper-wrapper {
+  backface-visibility: hidden;
+}
+
+.swiper-slide {
+  opacity: 0 !important;
+  transition: opacity 0.3s ease;
+
+  &-active {
+    opacity: 1 !important;
+  }
+}

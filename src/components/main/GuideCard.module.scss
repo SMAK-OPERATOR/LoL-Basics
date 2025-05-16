@@ -1,0 +1,57 @@
+@import '../../styles/themes/all';
+@import '../../styles/mixins';
+
+.guideCard {
+  @include flex-center;
+  border: 2px solid $color-text;
+  width: 212px;
+  height: 212px;
+  padding: 2px;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: $color-bright;
+}
+  // Состояние при нажатии
+  &.active {
+    border-color: $color-text;
+  }
+}
+.container{
+  background-color: $color-h;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  @include flex-center;
+  justify-content: flex-start;
+
+  .guideCard:hover & {
+    background-color: $color-faint;
+  }
+
+  // Состояние при нажатии
+  .guideCard.active & {
+    background-color: $color-bright;
+  }
+}
+
+.image {
+  margin-top: 1.5em;
+}
+
+.textBox{
+  width: 80%;
+  @include flex-center;
+  height: calc(100% - 85px);
+}
+
+.text {
+  text-align: center;
+  color: $color-white;
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+}
+
+.link{
+  text-decoration: none;
+}

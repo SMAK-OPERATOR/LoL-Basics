@@ -1,0 +1,241 @@
+@import '../../../styles/mixins';
+
+.testContainer {
+  padding: 2rem 15% 0; // Добавляем боковые отступы
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+}
+
+.iconButton {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: 2px solid var(--color-faint);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 3rem;
+
+  &:hover {
+    border-color: var(--color-bright);
+  }
+
+  &:active {
+    border-color: var(--color-h);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    color: var(--color-faint);
+  }
+
+}
+
+.iconButtonRight{
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: 2px solid var(--color-faint);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 3rem;
+  &:hover {
+    border-color: var(--color-bright);
+  }
+
+  &:active {
+    border-color: var(--color-text);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    color: var(--color-faint);
+  }
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.progressStep {
+  display: flex;
+  align-items: center;
+}
+
+.progressDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-faint);
+  transition: background-color 0.3s ease;
+
+  &.active {
+    background-color: var(--color-bright);
+  }
+}
+
+.progressLine {
+  width: 100px;
+  height: 2px;
+  background-color: var(--color-faint);
+  transition: background-color 0.3s ease;
+
+  &.active {
+    background-color: var(--color-bright);
+  }
+}
+
+.counter {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-secondary);
+  color: var(--color-h);
+}
+
+.questionText {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-primary);
+  color: var(--color-h);
+  justify-content: flex-start;
+  text-align: left;
+  width: 70%;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.option {
+  border: 2px solid var(--color-faint);
+  background: none;
+  display: flex;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 1rem;
+  margin: 1rem 0;
+  align-items: center;
+gap: 1rem;
+  &:hover {
+    border-color: var(--color-bright);
+  }
+
+  &.selected {
+    border-color: var(--color-dtext);
+  }
+
+  &.correct {
+    border-color: #00ff00;
+  }
+
+  &.incorrect {
+    border-color: #ff0000;
+  }
+}
+
+.optionNumber {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-secondary);
+  color: var(--color-h);
+}
+
+.optionText {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-text);
+  color: var(--color-text);
+  white-space: normal; // Разрешить перенос текста
+}
+
+.actionContainer {
+  width: 100%;
+  padding: 0;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  align-items: center;
+
+}
+
+.explanation {
+  font-family: var(--font-secondary);
+  color: var(--color-h);
+  font-size: var(--font-size-text);
+  max-width: 30rem;
+}
+
+.button {
+  --border-width: 2px;
+  --gap: 0.25rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20.5rem;
+  height: 6rem;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: var(--border-width) solid var(--color-faint);
+    transition: inherit;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: calc(var(--gap) + var(--border-width));
+    background-color: var(--color-h);
+    transition: inherit;
+  }
+
+  &:hover {
+    &::before {
+      border-color: var(--color-bright);
+    }
+    &::after {
+      background-color: var(--color-faint);
+    }
+  }
+
+  &:active {
+    &::before {
+      border-color: var(--color-faint);
+    }
+    &::after {
+      background-color: var(--color-bright);
+    }
+  }
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: var(--font-size-secondary);
+}
+
