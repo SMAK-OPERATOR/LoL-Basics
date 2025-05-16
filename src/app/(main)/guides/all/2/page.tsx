@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Logo from '@/components/Logo';
 import styles from './page.module.scss';
 import adcData from '../../../../../data/json/all.json'
-import Image from 'next/image';
 import {ProgressTimeline} from '@/components/guides/ProgressTimeline';
 import BlockRenderer from '@/components/guides/BlockRenderer';
 import CustomButton from '@/components/guides/Button';

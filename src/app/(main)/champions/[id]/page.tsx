@@ -1,4 +1,4 @@
-import { ChampionDetails } from '@/types/champion';
+import {ApiSpell, ChampionDetails} from '@/types/champion';
 import ClientPage from './ClientPage';
 
 async function getChampion(id: string): Promise<ChampionDetails> {
@@ -24,13 +24,12 @@ async function getChampion(id: string): Promise<ChampionDetails> {
         tags: champData.tags,
         image: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`,
         lore: champData.lore,
-        spells: champData.spells.map((spell: any, index: number) => ({
+        spells: champData.spells.map((spell: ApiSpell, index: number) => ({
             id: spell.id,
             name: spell.name,
             description: spell.description,
             image: `https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${spell.image.full}`,
             video: getVideoUrl('spell', index)
-
         })),
         passive: {
             id: champData.passive.name,
@@ -46,8 +45,8 @@ async function getChampion(id: string): Promise<ChampionDetails> {
                 num: 0
             },
             ...champData.skins
-                .filter(skin => skin.num > 0)
-                .map(skin => ({
+                .filter((skin: { num: number }) => skin.num > 0)
+                .map((skin: { name: string; num: number }) => ({
                     name: skin.name,
                     image: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skin.num}.jpg`,
                     num: skin.num

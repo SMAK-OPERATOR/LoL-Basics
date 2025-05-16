@@ -1,5 +1,5 @@
-// app/champions/page.tsx
-import { Champion } from '@/types/champion';
+
+import { Champion, ChampionApiResponse, ApiChampion } from '@/types/champion';
 import ClientPage from './ClientPage';
 
 async function getChampions(): Promise<Champion[]> {
@@ -7,9 +7,9 @@ async function getChampions(): Promise<Champion[]> {
     const res = await fetch(
         `https://ddragon.leagueoflegends.com/cdn/${version}/data/ru_RU/champion.json`
     );
-    const data = await res.json();
+    const data: ChampionApiResponse = await res.json();
 
-    return Object.values(data.data).map((champ: any) => ({
+    return Object.values(data.data).map((champ: ApiChampion) => ({
         id: champ.id,
         name: champ.name,
         title: champ.title,
@@ -20,6 +20,5 @@ async function getChampions(): Promise<Champion[]> {
 
 export default async function ChampionsPage() {
     const champions = await getChampions();
-
     return <ClientPage initialChampions={champions} />;
 }
