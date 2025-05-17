@@ -7,7 +7,7 @@
 .headerSection {
   display: flex;
   gap: 4rem;
-  align-items: flex-start; // Изменено с center на flex-start
+  align-items: flex-start;
   margin-bottom: 4rem;
 }
 
@@ -245,8 +245,6 @@
     color: $color-bright;
     font-weight: 500;
   }
-
-  // Стили для маркированных списков в описании
   ul {
     padding-left: 2rem;
     margin: 1rem 0;
@@ -374,5 +372,141 @@
 
   &-active {
     opacity: 1 !important;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .headerSection {
+    gap: 2rem;
+  }
+
+  .lore {
+    max-width: 100%;
+  }
+
+  .carouselContainer {
+    width: 100%;
+    height: 400px;
+  }
+
+  .spellsContainer {
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+  }
+
+  .spellDetailName {
+    font-size: 2rem;
+  }
+
+  .spellKey {
+    font-size: 1.8rem;
+  }
+
+  .spellFullDescription {
+    font-size: 1.1rem;
+  }
+  .container {
+    margin-top: 1rem;
+  }
+
+  .headerSection {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .spellDetailImage {
+    width: 70px;
+    height: 70px;
+  }
+
+  .spellName {
+    white-space: normal;
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerSection {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .carouselContainer {
+    order: 2;
+    height: 300px;
+  }
+
+  .titleWrapper {
+    order: 1;
+  }
+
+  .spellsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .spellsList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .spellItem {
+    flex: 1 1 45%;
+    max-width: 200px;
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .spellImage {
+    width: 35px;
+    height: 35px;
+  }
+
+  .spellType {
+    font-size: 1.2rem;
+  }
+
+  .spellName {
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  .spellDetailsContainer {
+    order: 2;
+    margin-top: 1rem;
+  }
+
+  .abilityVideoContainer {
+    margin-top: 1rem;
+  }
+  .container {
+    margin-top: 2rem;
+    padding: 1rem 0;
+  }
+
+  .spellsList {
+    gap: 0.8rem;
+  }
+
+  .spellItem {
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
+
+  .spellDetailImage {
+    width: 60px;
+    height: 60px;
+  }
+
+  .spellDetailName {
+    font-size: 1.8rem;
+  }
+
+  .abilityVideoContainer {
+    margin-top: 1rem;
   }
 }

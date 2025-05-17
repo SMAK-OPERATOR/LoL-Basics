@@ -1,0 +1,125 @@
+@import '../../../../styles/themes/adc';
+@import '../../../../styles/mixins';
+
+$blockMargin: 8em;
+
+.header {
+  margin-top: 6em;
+  display: flex;
+  align-items: center;
+
+  .imageContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  }
+
+
+.main {
+  margin-top: $blockMargin;
+
+  .descContainer {
+    width: 49.25%;
+
+    .mainTitle {
+      padding-bottom: 1.3em;
+      font-family: var(--font-primary), sans-serif;
+      font-size: var(--font-size-primary);
+      font-style: italic;
+      color: $color-bright;
+    }
+
+    .mainDescription {
+      font-family: var(--font-text), sans-serif;
+      font-size: var(--font-size-text);
+      color: $color-text;
+    }
+  }
+
+  .timeLineContainer {
+    margin-top: $blockMargin/2;
+  }
+}
+
+.contentContainer{
+  margin-top: 4rem;
+}
+
+.conclusionContainer{
+  border: 2px solid $color-h;
+  min-width: 100%;
+  @include flex-center;
+  flex-direction: column;
+  margin-bottom: $blockMargin;
+  margin-top: $blockMargin;
+  .firstLine{
+    margin: 1.5rem 0;
+    max-width: 80%;
+    color: $color-bright;
+    font-family: var(--font-conclusion), sans-serif;
+    font-size: var(--font-size-primary);
+    margin-bottom: 0;
+  }
+
+  .secondLine{
+    max-width: 80%;
+    margin: 1.25rem 0;
+    text-align: center;
+    color: $color-text;
+    font-family: var(--font-secondary), sans-serif;
+    font-size: var(--font-size-secondary);
+  }
+}
+
+.lastBlock {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 4rem 0;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0;
+  }
+}
+
+.leftBlock,
+.rightBlock {
+  flex: 1;
+  // Для мобильных устройств
+  @media (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.leftBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.rightBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.buttonText {
+  margin-bottom: 1.5rem;
+  color: $color-bright;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: var(--font-size-secondary);
+  white-space: nowrap;
+}

@@ -32,6 +32,7 @@ export default function ClientPage({ champion }: { champion: ChampionDetails }) 
     ];
     return (
         <main className="mainContainer">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
             <Header />
             <div className={styles.container}>
                 <div className={styles.headerSection}>
