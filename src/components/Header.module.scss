@@ -1,20 +1,37 @@
 @import '../styles/themes/all';
 
 .header {
-  margin-top: 6em;
+  margin-top: 4em;
   display: flex;
   align-items: center;
+  gap: 3rem;
+  margin-bottom: 6em;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2em;
+  }
+  @media (max-width: 1024px) {
+    gap: 2rem;
+  }
 
   .divider {
-    width: 0.0625*2rem;
+    width: 2px;
     height: 6rem;
     background: $color-bright;
-    margin: 0 3.5rem;
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   .navlink {
+    font-size: clamp(2rem, 2vw, 1.25rem);
+    white-space: nowrap;
     font-family: var(--font-secondary), sans-serif;
-    font-size: var(--font-size-secondary);
     color: $color-bright;
     text-decoration: none;
     transition: color 0.3s;
@@ -31,6 +48,7 @@
   .dropDown {
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
 
     .dropDownText {
       font-family: var(--font-secondary), sans-serif;
@@ -40,7 +58,7 @@
 
       &:hover,
       &.active {
-        color: $color-faint; // Цвет при наведении и активном состоянии
+        color: $color-faint;
       }
     }
 
@@ -50,31 +68,30 @@
       height: 0;
       border-left: 12px solid transparent;
       border-right: 12px solid transparent;
-      border-bottom: 18px solid $color-bright; // Цвет треугольника
+      border-bottom: 18px solid $color-bright;
       margin-left: 0.6em;
       transition: border-bottom-color 0.3s, transform 0.3s;
       border-radius: 10px;
-
       &.active {
-        border-bottom-color: $color-faint; // Цвет треугольника при активном состоянии
-        transform: rotate(180deg); // Поворот треугольника
+        border-bottom-color: $color-faint;
+        transform: rotate(180deg);
       }
     }
 
     .dropdownMenu {
       position: absolute;
-      background-color: white; // Цвет фона выпадающего списка
+      background-color: white;
       box-shadow: 0em 0.25em 0.5em $color-h;
       z-index: 1000;
       padding: 1em 1em 0.2em;
-      height: auto; // Установите на auto для динамической высоты
-      overflow: hidden; // Скрыть содержимое при закрытом состоянии
-      opacity: 0; // Начальная прозрачность
-      transition: height 0.3s ease, opacity 0.3s ease; // Плавная анимация
+      height: auto;
+      overflow: hidden;
+      opacity: 0;
+      transition: height 0.3s ease, opacity 0.3s ease;
 
       &.show {
-        opacity: 1; // Полная непрозрачность при открытом состоянии
-        transition-delay: 0s; // Задержка перехода при открытии
+        opacity: 1;
+        transition-delay: 0s;
       }
 
       .dropdownItem {
@@ -84,15 +101,15 @@
         display: block;
         padding-top: 0.625em;
         text-decoration: none;
-        color: $color-bright; // Цвет текста пунктов
+        color: $color-bright;
         white-space: nowrap;
 
         &:hover {
-          color: $color-faint; // Цвет текста при наведении на пункт
+          color: $color-faint;
         }
 
         &:active {
-          color: $color-text; // Цвет текста при нажатии на пункт
+          color: $color-text;
         }
       }
     }

@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import {useState, useEffect, useRef} from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import styles from './Header.module.scss';
+
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownMenuRef = useRef<HTMLDivElement>(null);
@@ -20,7 +21,7 @@ export default function Header() {
 
     return (
         <header className={styles.header}>
-            <Logo />
+            <Logo/>
             <div className={styles.divider}></div>
             <div
                 className={styles.dropDown}

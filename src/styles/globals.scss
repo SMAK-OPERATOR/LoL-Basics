@@ -10,7 +10,15 @@ body {
 }
 
 .mainContainer {
+  box-sizing: border-box;
   width: 71.5%;
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+  @media (max-width: 768px) {
+    width: 95%;
+    padding: 0 1rem !important;
+  }
 }
 
 

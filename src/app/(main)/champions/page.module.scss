@@ -1,12 +1,27 @@
-// app/champions/page.module.scss
 @import '../../../styles/themes/all.scss';
-
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+}
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(240px, 1fr)); // Фиксируем 4 колонки
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
   column-gap: 3rem;
   row-gap: 2rem;
   margin: 3rem auto 0;
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+
+  @media (max-width: 640px) {
+    justify-content: right;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    padding: 0 1rem;
+    margin-top: 0;
+  }
 }
 
 .noResults {
@@ -23,6 +38,17 @@
   margin: 4rem auto;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 1rem auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  @media (max-width: 1024px) {
+    gap: 1rem;
+  }
 }
 
 .searchWrapper {
@@ -30,6 +56,30 @@
   display: inline-block;
   border: 2px solid $color-faint;
   padding: 0.5rem 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+
+    .searchInput {
+      width: 100%;
+      font-size: 1.6rem;
+    }
+  }
+  @media (max-width: 480px) {
+    max-width: 280px; // Уже для мобильных
+    padding: 0.3rem 0.8rem;
+
+    .searchInput {
+      font-size: 1.4rem !important;
+      padding-left: 35px;
+    }
+
+    .searchIcon {
+      width: 28px;
+      height: 28px;
+      left: 8px;
+    }
+  }
 }
 
 .searchIcon {
@@ -47,20 +97,44 @@
   border: none;
   color: $color-h;
   font-family: var(--font-secondary);
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 2vw, 2rem);;
   padding-left: 40px;
+
   width: 300px;
   outline: none;
 
   &::placeholder {
     color: rgba($color-bright, 0.7);
   }
+  @media (max-width: 1024px){
+    width: 265px;
+  }
+
 }
 
 .rolesFilter {
   display: flex;
   gap: 1rem;
   margin-left: 5rem;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap; // Запрещаем перенос
+    gap: 0.5rem;
+    padding-bottom: 8px; // Для индикатора скролла
+
+    .roleButton {
+      width: 50px; // Уменьшаем размер
+      height: 50px;
+      flex-shrink: 0; // Запрещаем уменьшение
+      padding: 4px;
+    }
+  }
+  @media (max-width: 1040px) and (min-width: 1000px) {
+    margin-left: 1rem;
+  }
 }
 
 .roleButton {
@@ -91,3 +165,4 @@
   object-fit: contain;
   transition: filter 0.3s ease, transform 0.2s ease;
 }
+
