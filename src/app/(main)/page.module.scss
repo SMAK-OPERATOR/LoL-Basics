@@ -98,6 +98,11 @@
       margin-top: 0;
       order: 2;
     }
+
+    @media (min-width: 1360px) and (max-width: 1380px) {
+      margin-top: 6.5rem;
+      order: 2;
+    }
   }
 }
 
