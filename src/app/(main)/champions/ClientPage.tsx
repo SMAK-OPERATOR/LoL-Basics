@@ -23,7 +23,7 @@ export default function ClientPage({ initialChampions }: { initialChampions: Cha
     return (
         <main className="mainContainer">
             <Header />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
             <div className={styles.filterContainer}>
                 <div className={styles.searchWrapper}>
                     <svg className={styles.searchIcon} viewBox="0 0 24 24">

@@ -26,7 +26,10 @@ const robotoRegular = Roboto({
 })
 
 export const metadata: Metadata = {
-    title: 'LoL Basisc'
+    title: 'LoL Basisc',
+    icons:{
+        icon: 'public/icons/fav.svg',
+    }
 }
 
 export default function RootLayout({
@@ -36,8 +39,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${montserratMedium.variable} ${montserratRegular.variable} ${robotoRegular.variable}`}>
-        <body>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />{children}</body>
+        <body><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />{children}</body>
         </html>
     )
 }
