@@ -1,9 +1,7 @@
-// app/layout.tsx
 import type { Metadata } from 'next'
 import { Montserrat, Roboto } from 'next/font/google'
 import '../../styles/globals.scss' // Путь до глобальных стилей
 
-// Конфигурация шрифтов
 const montserratMedium = Montserrat({
     weight: '500',
     subsets: ['latin', 'cyrillic'],
