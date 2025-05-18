@@ -1,6 +1,8 @@
 .block {
   margin-bottom: 8rem;
-
+  @media (max-width: 768px) {
+    margin-bottom: 4rem;
+  }
   &:last-child {
     margin-bottom: 0;
   }
@@ -11,6 +13,9 @@
   font-size: 2rem;
   color: var(--color-h);
   font-family: var(--font-secondary), sans-serif;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 }
 
 .paragraph {
@@ -24,17 +29,59 @@
 .contentRow {
   display: flex;
   align-items: flex-start;
+  @media (min-width: 770px) and (max-width: 1040px) {
+    flex-direction: column !important;
+    gap: 2rem !important;
 
+    .textColumn {
+      width: 100% !important;
+      order: 1 !important;
+    }
+
+    .imageWrapper {
+      order: 2 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+      max-width: 600px !important;
+      align-self: center;
+
+      &.square {
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 450px;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    gap: 3rem;
+
+    .imageWrapper {
+      margin: 0 !important;
+      width: 100% !important;
+      order: 2;
+
+      &.square {
+        width: 100% !important;
+        margin: 0 !important;
+      }
+    }
+
+    .textColumn {
+      order: 1;
+    }
+  }
   &.reverse {
     flex-direction: row-reverse;
 
-    // Меняем margins только для НЕ квадратных изображений
     .imageWrapper:not(.square) {
       margin-left: 0;
-      margin-right: 8rem; // Добавляем правый отступ вместо левого
+      margin-right: 8rem;
     }
   }
 }
+
 
 .textColumn {
   flex: 1;
@@ -46,7 +93,7 @@
   padding: 2px;
   border: 2px solid var(--color-bright);
   align-self: flex-start;
-  margin-left: 8rem; // Стандартный левый отступ
+  margin-left: 8rem;
   margin-top: 5rem;
   line-height: 0;
 
@@ -58,6 +105,7 @@
   &:not(.square) {
     width: 554px;
   }
+
 }
 
 .wideBlock {
@@ -70,6 +118,13 @@
       flex: 1;
       max-width: 50%
     }
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 2rem;
+      .textContent {
+        max-width: 100%;
+      }
+    }
   }
 
   .wideImageWrapper {
@@ -78,7 +133,16 @@
     margin: -2px;
     background: white;
     overflow: hidden;
+    @media (max-width: 768px) {
+      border-width: 4px;
+      width: calc(100% + 2.5rem) !important;
+      margin-left: -1.5rem;
 
+      img {
+        width: 100%;
+        height: auto !important;
+      }
+    }
     :global(img) {
       display: block;
       width: 100%;

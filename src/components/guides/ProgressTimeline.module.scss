@@ -6,6 +6,18 @@
   margin-left: -6px;
   position: relative;
   overflow: visible;
+  @media (min-width: 350px) and (max-width: 1024px) {
+    transform: scale(0.9);
+    margin-left: -10%;
+    overflow-x: auto;
+    width: 100vw;
+    padding: 0;
+    padding-bottom: 1rem;
+    .item {
+      margin-right: -5%;
+    }
+  }
+
 }
 
 .item {
@@ -13,6 +25,7 @@
   cursor: pointer;
   transition: opacity 0.2s ease;
   flex-shrink: 0;
+
 }
 
 .imageContainer {
@@ -34,6 +47,7 @@
   margin: 0 0 0.5rem 0;
   color: var(--color-h);
   font-size: 1.25rem;
+
   font-family: var(--font-secondary), sans-serif;
   white-space: nowrap;
 
@@ -48,8 +62,8 @@
 
 .description {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.8rem);
+  max-width: 15rem !important;
   color: var(--color-text);
   font-family: var(--font-text), sans-serif;
-  max-width: 10rem;
 }

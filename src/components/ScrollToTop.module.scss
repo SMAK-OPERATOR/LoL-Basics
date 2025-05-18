@@ -1,4 +1,3 @@
-// components/ScrollToTop.module.scss
 
 .scrollButton {
   position: fixed;
@@ -29,7 +28,7 @@
       fill: var(--color-faint);
     }
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1366px) {
     display: none !important;
   }
 }

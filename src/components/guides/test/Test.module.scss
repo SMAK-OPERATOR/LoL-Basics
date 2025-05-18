@@ -131,7 +131,8 @@
   padding: 1rem;
   margin: 1rem 0;
   align-items: center;
-gap: 1rem;
+  text-align: left;
+  gap: 1rem;
   &:hover {
   }
 
@@ -239,3 +240,172 @@ gap: 1rem;
   font-size: var(--font-size-secondary);
 }
 
+@media (min-width: 770px) and (max-width: 1040px) {
+  .iconButton, .iconButtonRight {
+    width: 50px;
+    height: 50px;
+    margin: 0 1.5rem;
+
+    svg {
+      width: 85%;
+      height: 85%;
+    }
+  }
+  .header {
+    margin-bottom: 4rem;
+  }
+
+  .questionText {
+    margin: 3rem 0;
+  }
+
+  .optionsContainer {
+    margin: 2rem 0;
+  }
+
+  .actionContainer {
+    margin-top: 4rem;
+    gap: 3rem;
+  }
+
+  .explanation {
+    margin-left: 2rem;
+  }
+
+  .testContainer {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    padding: 2rem 5% 0;
+  }
+
+  .progressDot {
+    transform: scale(1.2);
+  }
+
+  .progressLine {
+    width: 150px;
+  }
+
+  .questionText {
+    width: 100%;
+    font-size: clamp(2.5em, 3vw, 3rem);
+  }
+
+  .optionsContainer {
+    width: 90%;
+  }
+
+  .option {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .optionText {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.4;
+  }
+
+  .button {
+    width: clamp(18rem, 40vw, 25rem);
+    height: clamp(6rem, 8vw, 8rem);
+  }
+
+  .explanation {
+    max-width: 50%;
+    font-size: clamp(1.5rem, 2vw, 1.2rem);
+  }
+}
+
+@media (max-width: 769px) {
+  .testContainer {
+    padding: 1rem 4% 0;
+  }
+
+  .header {
+    margin-top: 1rem;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .iconButton, .iconButtonRight {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    margin: 0 0.5rem;
+
+    svg {
+      stroke-width: 1.5px;
+    }
+  }
+
+  .progressDot {
+    width: 16px;
+    height: 16px;
+  }
+
+  .progressLine {
+    width: 40px;
+  }
+
+  .questionText {
+    width: 100%;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    text-align: center;
+  }
+
+  .optionsContainer {
+    width: 100%;
+  }
+
+  .option {
+    padding: 1rem;
+    margin: 0.8rem 0;
+    gap: 0.5rem;
+  }
+
+  .optionNumber {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+  }
+
+  .optionText {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    line-height: 1.4;
+  }
+
+  .actionContainer {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .button {
+    width: 100%;
+    height: 4.5rem;
+
+    .text {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+    }
+  }
+
+  .explanation {
+    max-width: 100%;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    text-align: left;
+  }
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .questionText {
+    margin: 1rem 0;
+  }
+
+  .optionsContainer {
+    margin: 0.5rem 0;
+  }
+
+  .actionContainer {
+    margin-top: 1rem;
+    gap: 2.5rem;
+  }
+}

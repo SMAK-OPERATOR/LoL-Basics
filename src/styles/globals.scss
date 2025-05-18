@@ -2,6 +2,18 @@
 @import './mixins';
 @import 'themes/themes';
 
+@viewport {
+  zoom: 1.0;
+  max-zoom: 1.0;
+  min-zoom: 1.0;
+  user-zoom: fixed;
+}
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 body {
   background: $color-white;
   margin: 0;

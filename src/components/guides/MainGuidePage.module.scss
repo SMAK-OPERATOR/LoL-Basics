@@ -8,19 +8,36 @@ $blockMargin: 8em;
   display: flex;
   align-items: center;
 
+
   .imageContainer {
     position: absolute;
     top: 0;
     right: 0;
   }
+  @media (max-width: 1400px) {
+    display: none;
+  }
+
 }
 
 .main {
   margin-top: $blockMargin;
-
+  @media (max-width: 768px) {    margin-top: 1rem;
+  }
   .descContainer {
     width: 49.25%;
+    @media (max-width: 768px) {
+      width: 100%;
 
+      .mainTitle {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        padding-bottom: 1.25rem !important;
+      }
+
+      .mainDescription {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+      }
+    }
     .mainTitle {
       padding-bottom: 1.3em;
       font-family: var(--font-primary), sans-serif;
@@ -38,11 +55,15 @@ $blockMargin: 8em;
 
   .timeLineContainer {
     margin-top: $blockMargin/2;
+    @media (max-width: 768px) {
+      margin-top: 3em;
+    }
   }
 }
 
 .contentContainer{
   margin-top: 4rem;
+
 }
 
 .conclusionContainer{
@@ -52,6 +73,7 @@ $blockMargin: 8em;
   flex-direction: column;
   margin-bottom: $blockMargin;
   margin-top: $blockMargin;
+
   .firstLine{
     margin: 1.5rem 0;
     max-width: 80%;
@@ -69,6 +91,21 @@ $blockMargin: 8em;
     font-family: var(--font-secondary), sans-serif;
     font-size: var(--font-size-secondary);
   }
+
+  @media (max-width: 768px) {
+    margin-top: $blockMargin/2;
+    margin-bottom: $blockMargin/2;
+    .firstLine {
+      text-align: center;
+      max-width:95% ;
+      font-size: clamp(1.5rem, 4vw, 1.5rem);
+    }
+
+    .secondLine {
+      max-width:95% ;
+      font-size: clamp(1.2rem, 3vw, 1rem);
+    }
+  }
 }
 
 .lastBlock {
@@ -78,7 +115,6 @@ $blockMargin: 8em;
   margin: 4rem 0;
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 3rem;
     padding: 0;
   }
 }
@@ -100,7 +136,15 @@ $blockMargin: 8em;
   @media (max-width: 768px) {
     align-items: center;
     text-align: center;
+    .buttonText {
+      white-space: normal;
+      font-size: clamp(1.2rem, 3vw, 1rem);
+    }
   }
+  @media (min-width: 770px) and (max-width: 1040px) {
+    max-width: 50%;
+  }
+
 }
 
 .rightBlock {
@@ -112,6 +156,10 @@ $blockMargin: 8em;
     align-items: center;
     text-align: center;
   }
+  @media (min-width: 770px) and (max-width: 1040px) {
+    padding-top: 2.5rem;
+    max-width: 50%;
+  }
 }
 
 .buttonText {
@@ -120,4 +168,6 @@ $blockMargin: 8em;
   font-family: var(--font-secondary), sans-serif;
   font-size: var(--font-size-secondary);
   white-space: nowrap;
-}
+  @media (min-width: 770px) and (max-width: 1040px) {
+    white-space: normal;
+  }}
