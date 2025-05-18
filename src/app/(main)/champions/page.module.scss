@@ -10,7 +10,7 @@
     grid-template-columns: repeat(3, minmax(240px, 1fr));
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     justify-content: right;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
     column-gap: 1.5rem;
@@ -53,14 +53,7 @@
   border: 2px solid $color-faint;
   padding: 0.5rem 1rem;
 
-  @media (max-width: 768px) {
-    width: 100%;
 
-    .searchInput {
-      width: 100%;
-      font-size: 1.6rem;
-    }
-  }
   @media (max-width: 480px) {
     max-width: 280px;
     padding: 0.3rem 0.8rem;
@@ -128,7 +121,7 @@
       padding: 4px;
     }
   }
-  @media (max-width: 1040px) and (min-width: 1000px) {
+  @media (max-width: 1040px) and (min-width: 940px) {
     margin-left: 1rem;
   }
 }
