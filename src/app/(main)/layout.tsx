@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
-import { Montserrat, Roboto } from 'next/font/google'
+import type {Metadata} from 'next'
+import {Montserrat, Roboto} from 'next/font/google'
 import '../../styles/globals.scss' // Путь до глобальных стилей
 
 const montserratMedium = Montserrat({
@@ -25,8 +25,14 @@ const robotoRegular = Roboto({
 
 export const metadata: Metadata = {
     title: 'LoL Basisc',
-    icons:{
-        icon: 'public/icons/fav.svg',
+    icons: {
+        icon: [
+            {
+                url: '/icons/favicon.svg',
+                type: 'image/svg+xml',
+                sizes: 'any' // или конкретные размеры '48x48'
+            },
+        ]
     }
 }
 
@@ -36,7 +42,15 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className={`${montserratMedium.variable} ${montserratRegular.variable} ${robotoRegular.variable}`}>
+        <html lang="en"
+              className={`${montserratMedium.variable} ${montserratRegular.variable} ${robotoRegular.variable}`}>
+        <head>
+            <link
+                rel="icon"
+                href="/icons/favicon.svg"
+                type="image/svg+xml"
+            />
+        </head>
         <body>{children}</body>
         </html>
     )
