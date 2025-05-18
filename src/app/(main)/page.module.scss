@@ -99,8 +99,12 @@
       order: 2;
     }
 
-    @media (min-width: 1360px) and (max-width: 1380px) {
-      margin-top: 6.5rem;
+    @media (min-width: 1024px) and (max-width: 1200px) {
+      margin-top: 12rem;
+      order: 2;
+    }
+    @media (min-width: 1200px) and (max-width: 1600px) {
+      margin-top: 7rem;
       order: 2;
     }
   }
