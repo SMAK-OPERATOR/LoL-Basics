@@ -169,7 +169,7 @@
   font-family: var(--font-secondary);
   color: $color-dtext;
   font-size: 1.2rem;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 
@@ -393,10 +393,12 @@
   .spellsContainer {
     grid-template-columns: 300px 1fr;
     gap: 2rem;
+
   }
 
   .spellDetailName {
     font-size: 2rem;
+
   }
 
   .spellKey {
@@ -424,6 +426,7 @@
     white-space: normal;
     font-size: 1.1rem;
     line-height: 1.3;
+
   }
 }
 
