@@ -1,11 +1,13 @@
+@import '../styles/themes/all';
+
 .logoContainer {
-  max-width: 100%;
+  display: inline-block;
   transition: all 0.3s ease;
+}
 
-  .logoImage {
-    width: 100%;
-    height: auto;
-
-
-  }
+.logoText {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 3rem;
+  transition: all 0.3s ease;
+  user-select: none;
 }

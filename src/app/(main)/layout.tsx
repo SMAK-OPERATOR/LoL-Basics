@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     icons: {
         icon: [
             {
-                url: '/icons/favicon.svg',
+                url: '/icons/faviconnew.svg',
                 type: 'image/svg+xml',
                 sizes: 'any' // или конкретные размеры '48x48'
             },
@@ -47,7 +47,7 @@ export default function RootLayout({
         <head>
             <link
                 rel="icon"
-                href="/icons/favicon.svg"
+                href="/icons/faviconnew.svg"
                 type="image/svg+xml"
             />
         </head>
