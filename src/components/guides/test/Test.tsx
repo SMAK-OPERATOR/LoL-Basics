@@ -3,18 +3,21 @@ import {useState, useMemo} from 'react';
 import styles from './Test.module.scss';
 import {TestData, TestQuestionPage} from '@/types/test';
 import {useRouter} from 'next/navigation';
+
 interface TestProps {
     theme?: 'adc' | 'support' | 'jungle' | 'all' | 'mid' | 'top';
     page: number;
     testData: TestData;
     nextPage: string;
 }
+
 const BackIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24">
         <line x1="0" y1="0" x2="24" y2="24" stroke="currentColor" strokeWidth="2"/>
         <line x1="0" y1="24" x2="24" y2="0" stroke="currentColor" strokeWidth="2"/>
     </svg>
 );
+
 const RestartIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24">
         <path
@@ -23,7 +26,7 @@ const RestartIcon = () => (
     </svg>
 );
 
-export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
+export const Test = ({theme = 'adc', page, testData, nextPage}: TestProps) => {
     const router = useRouter();
     const currentPageData = useMemo(
         () => testData.testQuestions.find(p => p.pageNumber === page) as TestQuestionPage,
@@ -36,9 +39,14 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
     const [isAnswerChecked, setIsAnswerChecked] = useState(false);
     const [questionStatuses, setQuestionStatuses] = useState<('unanswered' | 'correct' | 'incorrect')[]>(
         Array(totalQuestions).fill('unanswered')
-    );    const currentQuestion = currentPageData.questions[currentQuestionIndex];
+    );
+    const [showModal, setShowModal] = useState(false);
+    const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
+
+    const currentQuestion = currentPageData.questions[currentQuestionIndex];
     const selectedAnswer = answers[currentQuestionIndex];
     const isLastQuestion = currentQuestionIndex === totalQuestions - 1;
+
     const handleOptionSelect = (optionIndex: number) => {
         if (!isAnswerChecked) {
             const newAnswers = [...answers];
@@ -46,10 +54,12 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
             setAnswers(newAnswers);
         }
     };
+
     const handleBack = () => {
         router.back();
     };
-    const handleTestCompletion = () => {
+
+    const saveResults = () => {
         const key = theme;
         try {
             const totalPages = testData.testQuestions.length;
@@ -57,12 +67,14 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
             let completedPages: boolean[] = storedValue
                 ? JSON.parse(storedValue)
                 : Array(totalPages).fill(false);
+
             if (completedPages.length !== totalPages) {
                 completedPages = completedPages.slice(0, totalPages);
                 while (completedPages.length < totalPages) {
                     completedPages.push(false);
                 }
             }
+
             completedPages[page - 1] = true;
             localStorage.setItem(key, JSON.stringify(completedPages));
         } catch (error) {
@@ -97,8 +109,17 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
         } catch (error) {
             console.error('Ошибка при сохранении результатов теста:', error);
         }
+    };
 
-        router.push(nextPage);
+    const completeTest = () => {
+        saveResults();
+
+        const correctCount = questionStatuses.filter(
+            status => status === 'correct'
+        ).length;
+
+        setCorrectAnswersCount(correctCount);
+        setShowModal(true);
     };
 
     const handleSubmit = () => {
@@ -119,7 +140,7 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
             setCurrentQuestionIndex(prev => prev + 1);
             setIsAnswerChecked(false);
         } else {
-            handleTestCompletion();
+            completeTest();
         }
     };
 
@@ -127,7 +148,13 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
         setCurrentQuestionIndex(0);
         setAnswers(Array(totalQuestions).fill(null));
         setIsAnswerChecked(false);
-        setQuestionStatuses(Array(totalQuestions).fill('unanswered')); // Добавляем сброс статусов
+        setQuestionStatuses(Array(totalQuestions).fill('unanswered'));
+        setShowModal(false);
+    };
+
+    const handleContinue = () => {
+        setShowModal(false);
+        router.push(nextPage);
     };
 
     return (
@@ -220,6 +247,34 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
                 )}
             </div>
 
+            {showModal && (
+                <div className={styles.modalOverlay}>
+                    <div className={styles.modal}>
+                        <h2>Тест завершен!</h2>
+                        <p>Ваш результат: {correctAnswersCount} из {totalQuestions}</p>
+
+                        <div className={styles.modalButtons}>
+                            <button
+                                className={`${styles.button} ${styles.modalButton}`}
+                                onClick={handleRestart}
+                            >
+                                <span className={styles.text}>
+                                    Пройти снова
+                                </span>
+                            </button>
+
+                            <button
+                                className={`${styles.button} ${styles.modalButton}`}
+                                onClick={handleContinue}
+                            >
+                                <span className={styles.text}>
+                                    Продолжить
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

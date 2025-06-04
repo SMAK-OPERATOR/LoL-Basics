@@ -420,3 +420,116 @@
     gap: 2.5rem;
   }
 }
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--color-bg);
+  padding: 3rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  border: 2px solid var(--color-faint);
+
+  h2 {
+    font-family: var(--font-primary);
+    color: var(--color-h);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-family: var(--font-secondary);
+    color: var(--color-text);
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.modalButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.modalButton {
+  width: 100%;
+  height: 6rem;
+
+  .text {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1040px) {
+  .modal {
+    padding: 2.5rem;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+
+  }
+
+  .modalButton {
+    height: clamp(6rem, 8vw, 8rem);
+
+    .text {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .modal {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    border: none;
+  }
+
+  .modalButtons {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .modalButton {
+    height: 4.5rem;
+
+    .text {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      gap: 0.5rem;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
