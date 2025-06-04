@@ -138,14 +138,17 @@
 
   &.selected {
     border-color: var(--color-bright);
+    box-shadow: 0 0 2rem var(--color-bright);
   }
 
   &.correct {
-    border-color: #00ff00;
+    border-color: #53ea53;
+    box-shadow: 0 0 2rem rgba(87, 255, 87, 0.8);
   }
 
   &.incorrect {
-    border-color: #ff0000;
+    border-color: #ff6666;
+    box-shadow: 0 0 15px rgba(255, 102, 102, 0.8);
   }
 }
 
