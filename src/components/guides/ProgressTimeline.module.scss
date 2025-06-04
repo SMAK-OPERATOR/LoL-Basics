@@ -46,7 +46,7 @@
 .title {
   margin: 0 0 0.5rem 0;
   color: var(--color-h);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 
   font-family: var(--font-secondary), sans-serif;
   white-space: nowrap;
@@ -62,8 +62,9 @@
 
 .description {
   margin: 0;
-  font-size: clamp(0.8rem, 1.5vw, 0.8rem);
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   max-width: 15rem !important;
   color: var(--color-text);
   font-family: var(--font-text), sans-serif;
 }
+

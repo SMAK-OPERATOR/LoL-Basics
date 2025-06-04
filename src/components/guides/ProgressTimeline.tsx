@@ -90,6 +90,7 @@ export const ProgressTimeline = ({ timeLine, storageKey, theme, pageHrefs }: Pro
     const [completedStates, setCompletedStates] = useState<boolean[]>([]);
     const [hoverStates, setHoverStates] = useState<boolean[]>([]);
     const [pressedStates, setPressedStates] = useState<boolean[]>([]);
+    const [testResults, setTestResults] = useState<number[]>([]);
 
     useEffect(() => {
         const isClient = typeof window !== 'undefined';
@@ -104,11 +105,29 @@ export const ProgressTimeline = ({ timeLine, storageKey, theme, pageHrefs }: Pro
             setCompletedStates(initialCompleted);
             setHoverStates(Array(elements.length).fill(false));
             setPressedStates(Array(elements.length).fill(false));
+            const resultsKey = `${theme}Test`;
+            const savedResults = localStorage.getItem(resultsKey);
+            let initialResults: number[] = [];
+
+            if (savedResults) {
+                initialResults = JSON.parse(savedResults);
+                if (initialResults.length > elements.length) {
+                    initialResults = initialResults.slice(0, elements.length);
+                } else if (initialResults.length < elements.length) {
+                    initialResults = initialResults.concat(
+                        Array(elements.length - initialResults.length).fill(0))
+                }
+            } else {
+                initialResults = Array(elements.length).fill(0);
+            }
+
+            setTestResults(initialResults);
         } catch (e) {
             console.error('Error loading progress:', e);
             setCompletedStates(Array(elements.length).fill(false));
+            setTestResults(Array(elements.length).fill(0));
         }
-    }, [elements.length, storageKey]);
+    }, [elements.length, storageKey, theme]);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && completedStates.length > 0) {
@@ -131,11 +150,12 @@ export const ProgressTimeline = ({ timeLine, storageKey, theme, pageHrefs }: Pro
                 const isCompleted = completedStates[index];
                 const isHovered = hoverStates[index];
                 const isPressed = pressedStates[index];
-
                 let state: keyof TimelineElement = 'default';
                 if (isPressed) state = 'pressed';
                 else if (isHovered) state = 'hover';
                 else if (isCompleted) state = 'completed';
+                const totalQuestions = 4;
+                const correctCount = testResults[index] || 0;
 
                 return (
                     <Link
@@ -179,7 +199,10 @@ export const ProgressTimeline = ({ timeLine, storageKey, theme, pageHrefs }: Pro
                                 `}>
                                     {timeLine.title[index]}
                                 </p>
-                                <p className={styles.description}>{timeLine.description[index]}</p>
+                                <p className={styles.description}>{isCompleted
+                                    ? `Тест: ${correctCount}/${totalQuestions}`
+                                    : "Тест не пройден"}
+                                </p>
                             </div>
                         </div>
                     </Link>
