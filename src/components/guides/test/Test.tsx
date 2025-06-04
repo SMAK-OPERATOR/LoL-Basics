@@ -68,6 +68,36 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
         } catch (error) {
             console.error('Ошибка при обновлении localStorage:', error);
         }
+
+        const resultsKey = `${theme}Test`;
+        try {
+            const arraySize = theme === 'jungle' ? 4 : 3;
+            const storedResults = localStorage.getItem(resultsKey);
+            let results: number[] = storedResults
+                ? JSON.parse(storedResults)
+                : Array(arraySize).fill(0);
+
+            if (results.length !== arraySize) {
+                const newResults = Array(arraySize).fill(0);
+                for (let i = 0; i < Math.min(results.length, arraySize); i++) {
+                    newResults[i] = results[i];
+                }
+                results = newResults;
+            }
+
+            const correctCount = questionStatuses.filter(
+                status => status === 'correct'
+            ).length;
+
+            const currentPageIndex = page - 1;
+            if (correctCount > results[currentPageIndex]) {
+                results[currentPageIndex] = correctCount;
+                localStorage.setItem(resultsKey, JSON.stringify(results));
+            }
+        } catch (error) {
+            console.error('Ошибка при сохранении результатов теста:', error);
+        }
+
         router.push(nextPage);
     };
 
