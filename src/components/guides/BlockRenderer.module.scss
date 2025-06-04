@@ -1,6 +1,6 @@
 .block {
   margin-bottom: 8rem;
-  @media (max-width: 768px) {
+  @media (max-width: 1040px) {
     margin-bottom: 4rem;
   }
   &:last-child {
@@ -45,6 +45,7 @@
       width: 100% !important;
       max-width: 600px !important;
       align-self: center;
+      margin-top: 0;
 
       &.square {
         margin: 0 !important;
@@ -72,6 +73,33 @@
       order: 1;
     }
   }
+  @media (min-width: 1041px) and (max-width: 1600px) {
+    gap: 4%;
+    align-items: flex-start;
+
+    .imageWrapper {
+      margin: 0 !important;
+      width: 45%;
+      max-width: 554px;
+      min-width: 350px;
+      flex: 0 0 auto;
+
+      &.square {
+        max-width: 435px;
+        min-width: 300px;
+      }
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .textColumn {
+      flex: 1;
+      min-width: 50%;
+    }
+  }
+
   &.reverse {
     flex-direction: row-reverse;
 
