@@ -34,8 +34,9 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [answers, setAnswers] = useState<(number | null)[]>(Array(totalQuestions).fill(null));
     const [isAnswerChecked, setIsAnswerChecked] = useState(false);
-    const [checkedQuestions, setCheckedQuestions] = useState<boolean[]>(Array(totalQuestions).fill(false));
-    const currentQuestion = currentPageData.questions[currentQuestionIndex];
+    const [questionStatuses, setQuestionStatuses] = useState<('unanswered' | 'correct' | 'incorrect')[]>(
+        Array(totalQuestions).fill('unanswered')
+    );    const currentQuestion = currentPageData.questions[currentQuestionIndex];
     const selectedAnswer = answers[currentQuestionIndex];
     const isLastQuestion = currentQuestionIndex === totalQuestions - 1;
     const handleOptionSelect = (optionIndex: number) => {
@@ -72,12 +73,15 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
 
     const handleSubmit = () => {
         if (selectedAnswer === null) return;
-        setIsAnswerChecked(true);
-        setCheckedQuestions(prev => {
-            const newChecked = [...prev];
-            newChecked[currentQuestionIndex] = true;
-            return newChecked;
+        const isCorrect = selectedAnswer === currentQuestion.correctIndex;
+
+        setQuestionStatuses(prev => {
+            const newStatuses = [...prev];
+            newStatuses[currentQuestionIndex] = isCorrect ? 'correct' : 'incorrect';
+            return newStatuses;
         });
+
+        setIsAnswerChecked(true);
     };
 
     const handleNext = () => {
@@ -93,6 +97,7 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
         setCurrentQuestionIndex(0);
         setAnswers(Array(totalQuestions).fill(null));
         setIsAnswerChecked(false);
+        setQuestionStatuses(Array(totalQuestions).fill('unanswered')); // Добавляем сброс статусов
     };
 
     return (
@@ -107,13 +112,21 @@ export const Test = ({theme = 'adc', page, testData,nextPage}: TestProps) => {
                         <div key={index} className={styles.progressStep}>
                             <div
                                 className={`${styles.progressDot} ${
-                                    checkedQuestions[index] ? styles.active : ''
+                                    questionStatuses[index] === 'correct'
+                                        ? styles.correct
+                                        : questionStatuses[index] === 'incorrect'
+                                            ? styles.incorrect
+                                            : ''
                                 }`}
                             />
                             {index < totalQuestions - 1 && (
                                 <div
                                     className={`${styles.progressLine} ${
-                                        checkedQuestions[index] ? styles.active : ''
+                                        questionStatuses[index] === 'correct'
+                                            ? styles.correct
+                                            : questionStatuses[index] === 'incorrect'
+                                                ? styles.incorrect
+                                                : ''
                                     }`}
                                 />
                             )}

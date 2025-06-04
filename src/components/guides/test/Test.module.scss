@@ -85,8 +85,12 @@
   background-color: var(--color-faint);
   transition: background-color 0.3s ease;
 
-  &.active {
-    background-color: var(--color-bright);
+  &.correct {
+    background-color: #59d659;
+  }
+
+  &.incorrect {
+    background-color: #ea4848;
   }
 }
 
@@ -96,8 +100,12 @@
   background-color: var(--color-faint);
   transition: background-color 0.3s ease;
 
-  &.active {
-    background-color: var(--color-bright);
+  &.correct {
+    background-color: #59d659;
+  }
+
+  &.incorrect {
+    background-color: #ea4848;
   }
 }
 
