@@ -9,6 +9,7 @@ import CustomButton from '@/components/guides/Button';
 import ScrollToTop from '@/components/ScrollToTop';
 import Header from "@/components/Header";
 import { GuideData } from '@/types/guide';
+import { supabase } from '@/lib/supabaseClient';
 
 interface GuidePageProps {
     theme: 'adc' | 'support' | 'jungle' | 'all' | 'mid' | 'top';
@@ -23,8 +24,18 @@ export default function GuidePage({ theme, pageNumber }: GuidePageProps) {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const data = await import(`@/data/json/${theme}.json`);
-                setGuideData(data);
+                setLoading(true);
+
+                const { data, error: supabaseError } = await supabase
+                    .from('guides')
+                    .select('content')
+                    .eq('slug', theme)
+                    .single();
+
+                if (supabaseError) throw supabaseError;
+                if (!data) throw new Error('Guide not found');
+
+                setGuideData(data.content);
             } catch (err) {
                 setError('Failed to load guide data');
                 console.error(err);

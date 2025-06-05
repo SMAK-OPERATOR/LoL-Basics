@@ -1,5 +1,5 @@
 import { Test } from '@/components/guides/test/Test';
-
+import { supabase } from '@/lib/supabaseClient';
 const VALID_THEMES = ['adc', 'support', 'jungle', 'all', 'mid', 'top'] as const;
 
 export async function generateStaticParams() {
@@ -21,8 +21,17 @@ export default async function TestPage({
     const pageNumber = parseInt((await params).pageNumber);
     const maxPages = themeAw === 'jungle' ? 4 : 3;
 
-    const { default: testData } = await import(`@/data/json/${themeAw}Test.json`);
+    const { data, error } = await supabase
+        .from('tests')
+        .select('content')
+        .eq('slug', `${themeAw}`)
+        .single();
 
+    if (error) {
+        console.error("Error loading test data:", error);
+        throw new Error('Failed to load test data');
+    }
+    const testData = data.content;
     const isLastPage = pageNumber === maxPages;
     const nextPage = isLastPage
         ? `/guides/${themeAw}/${maxPages}`
