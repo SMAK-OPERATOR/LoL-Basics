@@ -67,20 +67,17 @@ export const Test = ({theme = 'adc', page, testData, nextPage}: TestProps) => {
             let completedPages: boolean[] = storedValue
                 ? JSON.parse(storedValue)
                 : Array(totalPages).fill(false);
-
             if (completedPages.length !== totalPages) {
                 completedPages = completedPages.slice(0, totalPages);
                 while (completedPages.length < totalPages) {
                     completedPages.push(false);
                 }
             }
-
             completedPages[page - 1] = true;
             localStorage.setItem(key, JSON.stringify(completedPages));
         } catch (error) {
             console.error('Ошибка при обновлении localStorage:', error);
         }
-
         const resultsKey = `${theme}Test`;
         try {
             const arraySize = theme === 'jungle' ? 4 : 3;
@@ -88,7 +85,6 @@ export const Test = ({theme = 'adc', page, testData, nextPage}: TestProps) => {
             let results: number[] = storedResults
                 ? JSON.parse(storedResults)
                 : Array(arraySize).fill(0);
-
             if (results.length !== arraySize) {
                 const newResults = Array(arraySize).fill(0);
                 for (let i = 0; i < Math.min(results.length, arraySize); i++) {
@@ -96,11 +92,9 @@ export const Test = ({theme = 'adc', page, testData, nextPage}: TestProps) => {
                 }
                 results = newResults;
             }
-
             const correctCount = questionStatuses.filter(
                 status => status === 'correct'
             ).length;
-
             const currentPageIndex = page - 1;
             if (correctCount > results[currentPageIndex]) {
                 results[currentPageIndex] = correctCount;

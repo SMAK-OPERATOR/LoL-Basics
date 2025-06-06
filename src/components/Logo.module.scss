@@ -10,8 +10,8 @@
     user-select: none;
     color: var(--color-bright);
     text-shadow: none;
-
-
+    white-space: nowrap;
+    
     &:hover {
       color: var(--color-bright);
       text-shadow: 0 0 25px var(--color-bright);
