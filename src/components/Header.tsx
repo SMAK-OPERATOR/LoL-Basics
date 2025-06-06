@@ -25,7 +25,7 @@ export default function Header({ theme = 'all' }: HeaderProps) {
 
     return (
         <header className={`${styles.header} theme-${theme}`}>`
-            <Logo/>
+            <Logo theme={theme} />
             <div className={`${styles.divider} theme-${theme}`}></div>
             <div
                 className={`${styles.dropDown} theme-${theme}`}

@@ -1,13 +1,24 @@
-@import '../styles/themes/all';
-
 .logoContainer {
   display: inline-block;
   transition: all 0.3s ease;
-}
+  cursor: pointer;
 
-.logoText {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 3rem;
-  transition: all 0.3s ease;
-  user-select: none;
+  .logoText {
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 3rem;
+    transition: all 0.3s ease;
+    user-select: none;
+    color: var(--color-bright);
+    text-shadow: none;
+
+
+    &:hover {
+      color: var(--color-bright);
+      text-shadow: 0 0 25px var(--color-bright);
+    }
+
+    &:active {
+      color: var(--color-faint);
+    }
+  }
 }
