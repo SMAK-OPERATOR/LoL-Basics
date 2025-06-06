@@ -61,6 +61,7 @@ export default function GuidePage({ theme, pageNumber }: GuidePageProps) {
         <main className="mainContainer" >
             <div className={`${styles.upperContainer} theme-${theme}`}>
                 <Header theme={theme} />
+                {theme !== 'all' && (
                 <header className={styles.header}>
                     <div className={styles.imageContainer}>
                         <Image
@@ -71,7 +72,7 @@ export default function GuidePage({ theme, pageNumber }: GuidePageProps) {
                             layout="intrinsic"
                         />
                     </div>
-                </header>
+                </header>)}
 
                 <main className={styles.main}>
                     <div className={styles.descContainer}>
