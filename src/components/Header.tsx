@@ -24,7 +24,7 @@ export default function Header({ theme = 'all' }: HeaderProps) {
     }, [isOpen]);
 
     return (
-        <header className={`${styles.header} theme-${theme}`}>`
+        <header className={`${styles.header} theme-${theme}`}>
             <Logo theme={theme} />
             <div className={`${styles.divider} theme-${theme}`}></div>
             <div
