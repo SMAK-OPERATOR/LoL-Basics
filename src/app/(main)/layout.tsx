@@ -24,13 +24,13 @@ const robotoRegular = Roboto({
 })
 
 export const metadata: Metadata = {
-    title: 'LoL Basisc',
+    title: 'LoL Basics',
     icons: {
         icon: [
             {
                 url: '/icons/faviconnew.svg',
                 type: 'image/svg+xml',
-                sizes: 'any' // или конкретные размеры '48x48'
+                sizes: 'any'
             },
         ]
     }
